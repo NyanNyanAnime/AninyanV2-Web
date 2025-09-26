@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Play, Download, Server, List, Monitor } from "lucide-react";
 import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import VideoPlayer from '../components/VideoPlayer';
-import GetAnimeDetail from '../apis/getAnimeDetail';
+import GetAnimeDetail from '../apis/GetAnimeDetail';
 import GetAnimeEpisode from '../apis/GetAnimeEpisode';
 import Loading from '../components/LoadingDetail';
 
