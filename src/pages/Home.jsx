@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import SectionTitle from "../components/SectionTitle";
 import AnimeCard from "../components/AnimeCard";
 import LoadingCard from "../components/LoadingCard";
