@@ -3,7 +3,7 @@ import AnimeCard from '../components/AnimeCard';
 import { useSearchParams } from "react-router-dom";
 import AnimeSearch from '../apis/AnimeSearch';
 import Loading from '../components/LoadingCard';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const SearchAnime = () => {
