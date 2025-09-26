@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Play, Plus, ThumbsUp, Info, Star, Calendar, Clock, Globe, Film, Users, Award, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
-import GetAnimeDetail from "../apis/getAnimeDetail";
+import GetAnimeDetail from "../apis/GetAnimeDetail";
 import LoadingDetail from "../components/LoadingDetail";
 import { Link, useParams } from "react-router-dom";
 
