@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from '../pages/home'
+import Home from '../pages/Home'
 import DetailAnime from '../pages/DetailAnime'
 import VideoAnime from '../pages/VideoAnime'
 import ViewMore from '../pages/ViewMore'
