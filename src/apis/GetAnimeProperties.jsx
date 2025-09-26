@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "./url";
+import { BASE_URL } from "./Url";
 
 const GetAnimeProperties = async (type) => {
     try {
