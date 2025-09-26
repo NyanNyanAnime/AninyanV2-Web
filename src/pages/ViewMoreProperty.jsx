@@ -3,7 +3,7 @@ import AnimeCard from '../components/AnimeCard';
 import { useParams, useSearchParams } from "react-router-dom";
 import Loading from '../components/LoadingCard';
 import GetAnimePropertiesById from '../apis/GetAnimePropertiesById';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const ViewMoreProperty = () => {
