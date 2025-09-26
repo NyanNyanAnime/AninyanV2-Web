@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Grid3X3, List, ChevronUp, Play } from 'lucide-react';
 import GetAnimeList from '../apis/GetAnimeList';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import { useSearchParams, Link } from "react-router-dom";
 import Footer from '../components/Footer';
 import AnimeCard from '../components/AnimeCard';
