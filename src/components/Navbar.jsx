@@ -43,7 +43,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <h1 className="text-2xl font-bold text-white">
-                        ANI<span className="bg-white text-black px-2 py-1 rounded ml-1">NYAN</span>
+                        ANI<span className="bg-white text-black px-2 py-1 rounded ml-1">PYON</span>
                     </h1>
 
                     {/* Desktop Nav */}

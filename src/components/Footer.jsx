@@ -6,12 +6,12 @@ const Footer = () => {
                     <h3 className="text-2xl font-bold text-white mb-4">
                         ANI
                         <span className="bg-white text-black px-2 py-1 rounded ml-2">
-                            NYAN
+                            PYON
                         </span>
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    {/* <p className="text-gray-400 text-sm">
                         Anime With The Touch Of The Cat
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </footer>
