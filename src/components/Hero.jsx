@@ -41,12 +41,6 @@ const Hero = ({ animeList }) => {
             <div className="relative z-10 h-full flex items-center">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                     <div className="max-w-2xl">
-                        <div className="mb-4">
-                            <span className="bg-[#4300FF] text-white px-3 py-1 rounded text-sm font-semibold uppercase tracking-wider">
-                                Ongoing
-                            </span>
-                        </div>
-
                         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight line-clamp-2">
                             {currentAnime.title}
                         </h1>
@@ -68,7 +62,7 @@ const Hero = ({ animeList }) => {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link
-                                to={`/anime/${currentAnime.animeCode}/${currentAnime.animeId}`}
+                                to={`/anime/${currentAnime.animeCode}/${currentAnime.animeId}/1`}
                                 className="flex items-center justify-center space-x-2 bg-white text-black px-6 py-3 rounded font-semibold hover:bg-white/90 transition-colors"
                             >
                                 <Play className="w-5 h-5" />

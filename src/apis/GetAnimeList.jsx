@@ -1,9 +1,8 @@
-import axios from "axios";
-import { BASE_URL } from "./Url";
+import Api from "./Api";
 
 const GetAnimeList = async (page, orderby) => {
     try {
-        const response = await axios.get(`${BASE_URL}/list?page=${page}&order_by=${orderby}`);
+        const response = await Api.get(`/list?page=${page}&order_by=${orderby}`);
         return response.data ?? [];
     } catch (error) {
         console.error("Error fetching anime list:", error);

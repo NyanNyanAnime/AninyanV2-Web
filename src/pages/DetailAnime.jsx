@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Play, Plus, ThumbsUp, Info, Star, Calendar, Clock, Globe, Film, Users, Award, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { Play, Plus, Info, Star, Calendar, Clock, Globe, Film, Users, Award, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import GetAnimeDetail from "../apis/GetAnimeDetail";
 import LoadingDetail from "../components/LoadingDetail";
 import { Link, useParams } from "react-router-dom";
@@ -123,7 +123,7 @@ const DetailAnime = () => {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             {animeData.episodeList?.map((episode, index) => (
                                 <Link
                                     key={episode.episodeId}
@@ -132,7 +132,7 @@ const DetailAnime = () => {
                                         key={episode.episodeId}
                                         className="group flex items-center bg-gray-900 hover:bg-gray-800 rounded-lg p-4 cursor-pointer transition-all"
                                     >
-                                        <div className="relative w-32 h-18 bg-gray-800 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                                        <div className="relative w-15 h-15 lg:w-32 lg:h-18 bg-gray-800 rounded-lg overflow-hidden mr-4 flex-shrink-0">
                                             <img
                                                 src={animeData.image}
                                                 alt={episode.title}

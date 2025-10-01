@@ -1,9 +1,8 @@
-import axios from "axios";
-import { BASE_URL } from "./Url";
+import Api from "./Api";
 
 const GetAnimeDetail = async (animeCode, animeId) => {
     try {
-        const response = await axios.get(`${BASE_URL}/${animeCode}/${animeId}`);
+        const response = await Api.get(`/${animeCode}/${animeId}`);
         return response.data.animeDetails ?? [];
     } catch (error) {
         console.error("Error fetching anime detail:", error);

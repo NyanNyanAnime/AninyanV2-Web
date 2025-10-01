@@ -1,9 +1,8 @@
-import axios from "axios";
-import { BASE_URL } from "./Url";
+import Api from "./Api";
 
 const GetAnimeProperties = async (type) => {
     try {
-        const response = await axios.get(`${BASE_URL}/properties/${type}`);
+        const response = await Api.get(`/properties/${type}`);
         return response.data.propertiesAnime ?? [];
     } catch (error) {
         console.error("Error fetching anime properties:", error);

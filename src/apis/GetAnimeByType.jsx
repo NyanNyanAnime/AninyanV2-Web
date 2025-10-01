@@ -1,9 +1,8 @@
-import axios from "axios";
-import { BASE_URL } from "./Url";
+import Api from "./Api";
 
 const GetAnimeByType = async (type, page, orderBy) => {
     try {
-        const response = await axios.get(`${BASE_URL}/${type}?page=${page}&order_by=${orderBy}`);
+        const response = await Api.get(`/${type}?page=${page}&order_by=${orderBy}`);
         const data = response.data;
 
         // Ambil key pertama dari response (misal "ongoingAnime", "summerAnime", dll.)

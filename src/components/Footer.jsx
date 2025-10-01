@@ -9,9 +9,9 @@ const Footer = () => {
                             PYON
                         </span>
                     </h3>
-                    {/* <p className="text-gray-400 text-sm">
-                        Anime With The Touch Of The Cat
-                    </p> */}
+                    <p className="text-gray-400 text-sm">
+                        Follow the Bunny, Discover Anime
+                    </p>
                 </div>
             </div>
         </footer>
