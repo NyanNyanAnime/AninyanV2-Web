@@ -9,6 +9,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
     const [isMuted, setIsMuted] = useState(false);
     const [showControls, setShowControls] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const videoRef = useRef(null);
     const containerRef = useRef(null);
@@ -193,12 +194,21 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
             onMouseMove={handleMouseMove}
             onMouseLeave={() => isPlaying && setShowControls(false)}
         >
+            {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-20">
+                    <div className="w-12 h-12 border-4 border-[#5409DA] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+            )}
+
             <video
                 ref={videoRef}
                 src={url}
                 className="w-full h-auto aspect-video"
                 crossOrigin="anonymous"
                 onClick={togglePlay}
+                onLoadedData={() => setIsLoading(false)}
+                onPlaying={() => setIsLoading(false)}
+                onWaiting={() => setIsLoading(true)}
             />
 
             {/* Controls Overlay */}
