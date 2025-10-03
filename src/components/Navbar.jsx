@@ -42,9 +42,13 @@ const Navbar = () => {
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <h1 className="text-2xl font-bold text-white">
-                        ANI<span className="bg-white text-black px-2 py-1 rounded ml-1">PYON</span>
-                    </h1>
+                    <Link
+                        to={"/"}
+                    >
+                        <h1 className="text-2xl font-bold text-white">
+                            ANI<span className="bg-white text-black px-2 py-1 rounded ml-1">PYON</span>
+                        </h1>
+                    </Link>
 
                     {/* Desktop Nav */}
                     <div className="hidden md:flex space-x-6">

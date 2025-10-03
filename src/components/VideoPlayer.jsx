@@ -175,7 +175,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
         return (
             <div className="w-full aspect-video bg-black rounded-lg flex flex-col items-center justify-center space-y-4">
                 <div className="relative">
-                    <div className="absolute inset-0 bg-red-600/20 rounded-full blur-3xl animate-pulse" /> <div className="relative bg-gradient-to-br from-gray-700 to-gray-800 p-8 rounded-full shadow-xl">
+                    <div className="absolute inset-0 bg-[#5409DA]/20 rounded-full blur-3xl animate-pulse" /> <div className="relative bg-gradient-to-br from-gray-700 to-gray-800 p-8 rounded-full shadow-xl">
                         <XCircle className="w-20 h-20 text-[#0065F8 ]" />
                     </div>
                 </div>
@@ -239,7 +239,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                             {/* Play/Pause */}
                             <button
                                 onClick={togglePlay}
-                                className="text-white hover:text-red-500 transition-colors"
+                                className="text-white hover:text-[#5409DA] transition-colors"
                             >
                                 {isPlaying ? (
                                     <Pause className="w-6 h-6" />
@@ -252,7 +252,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                                 {/* Skip Backward 5s */}
                                 <button
                                     onClick={() => handleSkip(-5)}
-                                    className="relative flex items-center justify-center w-10 h-10 text-white hover:text-red-500 transition-colors"
+                                    className="relative flex items-center justify-center w-10 h-10 text-white hover:text-[#5409DA] transition-colors"
                                     title="Mundur 5 detik"
                                 >
                                     <RotateCcw className="w-8 h-8" />
@@ -262,7 +262,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                                 {/* Skip Forward 5s */}
                                 <button
                                     onClick={() => handleSkip(5)}
-                                    className="relative flex items-center justify-center w-10 h-10 text-white hover:text-red-500 transition-colors"
+                                    className="relative flex items-center justify-center w-10 h-10 text-white hover:text-[#5409DA] transition-colors"
                                     title="Maju 5 detik"
                                 >
                                     <RotateCw className="w-8 h-8" />
@@ -275,7 +275,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                             <div className="flex items-center gap-2 group/volume">
                                 <button
                                     onClick={toggleMute}
-                                    className="text-white hover:text-red-500 transition-colors"
+                                    className="text-white hover:text-[#5409DA] transition-colors"
                                 >
                                     {isMuted || volume === 0 ? (
                                         <VolumeX className="w-6 h-6" />
@@ -309,7 +309,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                         {/* Fullscreen Button */}
                         <button
                             onClick={toggleFullscreen}
-                            className="text-white hover:text-red-500 transition-colors"
+                            className="text-white hover:text-[#4E71FF] transition-colors"
                             title="Layar penuh"
                         >
                             <Maximize className="w-6 h-6" />

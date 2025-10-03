@@ -50,9 +50,13 @@ const DetailAnime = () => {
                             >
                                 <ArrowLeft size={20} />
                             </button>
-                            <span className="text-xl lg:text-2xl font-bold">
-                                ANI <span className="bg-white text-black">PYON</span>
-                            </span>
+                            <Link
+                                to={"/"}
+                            >
+                                <span className="text-xl lg:text-2xl font-bold">
+                                    ANI <span className="bg-white text-black">PYON</span>
+                                </span>
+                            </Link>
                         </div>
                     </div>
                 </div>
