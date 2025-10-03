@@ -11,8 +11,8 @@ const GetAnimeByType = async (type, page, orderBy) => {
 
         return {
             data: anime,
-            nextPage,
-            prevPage,
+            nextPage: data.nextPage || false,
+            prevPage: data.prevPage || false,
         };
     } catch (error) {
         console.error(`Error fetching ${type} anime:`, error);

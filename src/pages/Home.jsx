@@ -148,7 +148,7 @@ const Home = () => {
 
                 <div className="mb-12 lg:mb-16">
                     {/* Genre Filter */}
-                    <SectionTitle title="Anime By Genre" subtitle="Explore by Theme" type="ongoing" />
+                    <SectionTitle title="Anime By Genre" subtitle="Explore by Theme" type="genre" activeValue={activeGenre} />
 
                     <div className="flex flex-wrap gap-3 mb-6">
                         {["action", "comedy", "romance"].map((genre) => (
@@ -179,7 +179,7 @@ const Home = () => {
                 </div>
 
                 <div className="mb-12 lg:mb-16">
-                    <SectionTitle title="Anime By Country" subtitle="Anime from Around the World" type="ongoing" />
+                    <SectionTitle title="Anime By Country" subtitle="Anime from Around the World" type="country" activeValue={activeCountry} />
 
                     <div className="flex flex-wrap gap-3 mb-6">
                         {["KR", "CN", "JP"].map((country) => (
