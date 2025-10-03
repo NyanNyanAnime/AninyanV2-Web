@@ -20,14 +20,18 @@ const Home = () => {
         summer: [],
         slider: []
     });
-    const [animeGenre, setAnimeGenre] = useState([]);
-    const [animeCountry, setAnimeCountry] = useState([]);
+    const [animeGenre, setAnimeGenre] = useState({
+        action: [],
+        romance: [],
+        comedy: [],
+        kr: [],
+        cn: [],
+        jp: []
+    });
     const [loading, setLoading] = useState(true);
-    const [loading2, setLoading2] = useState(true);
-    const [loading3, setLoading3] = useState(true);
-    const [activeGenre, setActiveGenre] = useState("action");
-    const [activeCountry, setActiveCountry] = useState("CN");
     const [historyList, setHistoryList] = useState([]);
+    const [activeGenre, setActiveGenre] = useState("action");
+    const [activeCountry, setActiveCountry] = useState("kr");
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -35,7 +39,11 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const data = await GetAllAnime();
+                const data2 = await GetAnimeByGenre();
                 setAnimeData(data);
+                setAnimeGenre(data2);
+                console.log(data2);
+
             } catch (error) {
                 console.error("Failed to fetch anime data:", error);
             } finally {
@@ -44,8 +52,6 @@ const Home = () => {
         };
 
         fetchData();
-        fetchAnimeByGenre(activeGenre);
-        fetchAnimeByCountry(activeCountry);
     }, []);
 
     useEffect(() => {
@@ -53,40 +59,12 @@ const Home = () => {
         setHistoryList(saved);
     }, []);
 
-    const fetchAnimeByGenre = async (genre) => {
-        setLoading2(true);
-        try {
-            const data = await GetAnimeByGenre("genre", genre);
-            setAnimeGenre(data);
-        } catch (error) {
-            console.error("Failed to fetch anime by genre:", error);
-            setAnimeGenre([]);
-        } finally {
-            setLoading2(false);
-        }
-    };
-
-    const fetchAnimeByCountry = async (country) => {
-        setLoading3(true);
-        try {
-            const data = await GetAnimeByGenre("country", country);
-            setAnimeCountry(data);
-        } catch (error) {
-            console.error("Failed to fetch anime by country:", error);
-            setAnimeCountry([]);
-        } finally {
-            setLoading3(false);
-        }
-    };
-
     const handleGenreClick = (genre) => {
         setActiveGenre(genre);
-        fetchAnimeByGenre(genre);
     };
 
     const handleCountryClick = (country) => {
-        setActiveCountry(country);
-        fetchAnimeByCountry(country);
+        setActiveCountry(country.toLowerCase());
     };
 
     const skeletons = Array.from({ length: 6 });
@@ -187,7 +165,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    {loading2 ? (
+                    {loading ? (
                         <div className="flex gap-4">
                             {skeletons.map((_, i) => (
                                 <div key={i} className="w-[150px] sm:w-[180px] md:w-[200px]">
@@ -196,7 +174,7 @@ const Home = () => {
                             ))}
                         </div>
                     ) : (
-                        <AnimeCardSlider animeList={animeGenre} />
+                        <AnimeCardSlider animeList={animeGenre[activeGenre]} />
                     )}
                 </div>
 
@@ -204,21 +182,21 @@ const Home = () => {
                     <SectionTitle title="Anime By Country" subtitle="Anime from Around the World" type="ongoing" />
 
                     <div className="flex flex-wrap gap-3 mb-6">
-                        {["CN", "KR", "JP"].map((country) => (
+                        {["KR", "CN", "JP"].map((country) => (
                             <button
                                 key={country}
-                                onClick={() => handleCountryClick(country)}
-                                className={`px-4 py-2 rounded-full text-base font-semibold transition-all transform ${activeCountry === country
+                                onClick={() => handleCountryClick(country.toLowerCase())}
+                                className={`px-4 py-2 rounded-full text-base font-semibold transition-all transform ${activeCountry === country.toLowerCase()
                                     ? "bg-[#0065F8] text-white shadow-lg scale-105"
                                     : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-105"
                                     }`}
                             >
-                                {country.charAt(0).toUpperCase() + country.slice(1)}
+                                {country}
                             </button>
                         ))}
                     </div>
 
-                    {loading3 ? (
+                    {loading ? (
                         <div className="flex gap-4">
                             {skeletons.map((_, i) => (
                                 <div key={i} className="w-[150px] sm:w-[180px] md:w-[200px]">
@@ -227,7 +205,7 @@ const Home = () => {
                             ))}
                         </div>
                     ) : (
-                        <AnimeCardSlider animeList={animeCountry} />
+                        <AnimeCardSlider animeList={animeGenre[activeCountry]} />
                     )}
                 </div>
 

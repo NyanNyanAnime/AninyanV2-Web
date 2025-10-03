@@ -7,7 +7,7 @@ const AnimeCardSlider = ({ animeList }) => {
 
     const scroll = (direction) => {
         if (sliderRef.current) {
-            const scrollAmount = sliderRef.current.offsetWidth; // geser 1 layar
+            const scrollAmount = sliderRef.current.offsetWidth;
             sliderRef.current.scrollBy({
                 left: direction === "left" ? -scrollAmount : scrollAmount,
                 behavior: "smooth",
@@ -17,7 +17,6 @@ const AnimeCardSlider = ({ animeList }) => {
 
     return (
         <div className="relative">
-            {/* Tombol navigasi */}
             <button
                 onClick={() => scroll("left")}
                 className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full shadow-lg"
@@ -30,7 +29,7 @@ const AnimeCardSlider = ({ animeList }) => {
                 className="flex overflow-x-auto no-scrollbar gap-4 scroll-smooth py-5"
             >
                 {animeList.map((anime, index) => (
-                    <div key={anime.id} className="flex-none w-[150px] sm:w-[180px] md:w-[200px]">
+                    <div key={anime.id} className="flex-none w-[150px] sm:w-[180px] md:w-[200px] lg:basis-1/6 lg:max-w-[16.66%]">
                         <AnimeCard anime={anime} index={index} />
                     </div>
                 ))}
