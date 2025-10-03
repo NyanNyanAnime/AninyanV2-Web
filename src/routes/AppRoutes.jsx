@@ -7,6 +7,7 @@ import SearchAnime from '../pages/SearchAnime'
 import AnimeList from '../pages/AnimeList'
 import AnimeProperties from '../pages/AnimeProperty'
 import ViewMoreProperty from '../pages/ViewMoreProperty'
+import AnimeSchedule from '../pages/AnimeSchedule'
 
 const AppRoutes = () => {
     return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
                 <Route path="/animelist" element={<AnimeList />} />
                 <Route path="/property" element={<AnimeProperties />} />
                 <Route path="/property/:type/:id" element={<ViewMoreProperty />} />
+                <Route path="/schedule" element={<AnimeSchedule />} />
             </Routes>
         </div>
     )

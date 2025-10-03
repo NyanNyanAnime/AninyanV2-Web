@@ -13,6 +13,7 @@ const AnimeProperties = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchData = async () => {
+      setLoading(true);
       try {
         const data = await GetAnimeProperties(type);
         setAnimeProperties(data);
@@ -38,13 +39,13 @@ const AnimeProperties = () => {
             onChange={(e) => setType(e.target.value)}
             className="bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#0065F8] transition-all"
           >
-            <option value="genre">Genre</option>
-            <option value="season">Season</option>
-            <option value="studio">Studio</option>
-            <option value="type">Type</option>
-            <option value="source">Source</option>
-            <option value="country">Country</option>
+            {["genre", "season", "studio", "type", "source", "country"].map((option) => (
+              <option key={option} value={option}>
+                {option.charAt(0).toUpperCase() + option.slice(1)}
+              </option>
+            ))}
           </select>
+
         </div>
 
         {loading ? (

@@ -251,22 +251,22 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
                             <div className="flex items-center">
                                 {/* Skip Backward 5s */}
                                 <button
-                                    onClick={() => handleSkip(-5)}
+                                    onClick={() => handleSkip(-10)}
                                     className="relative flex items-center justify-center w-10 h-10 text-white hover:text-[#5409DA] transition-colors"
                                     title="Mundur 5 detik"
                                 >
                                     <RotateCcw className="w-8 h-8" />
-                                    <span className="absolute text-[10px] font-bold">5</span>
+                                    <span className="absolute text-[10px] font-bold">10</span>
                                 </button>
 
                                 {/* Skip Forward 5s */}
                                 <button
-                                    onClick={() => handleSkip(5)}
+                                    onClick={() => handleSkip(10)}
                                     className="relative flex items-center justify-center w-10 h-10 text-white hover:text-[#5409DA] transition-colors"
                                     title="Maju 5 detik"
                                 >
                                     <RotateCw className="w-8 h-8" />
-                                    <span className="absolute text-[10px] font-bold">5</span>
+                                    <span className="absolute text-[10px] font-bold">10</span>
                                 </button>
                             </div>
 
