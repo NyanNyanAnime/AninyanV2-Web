@@ -22,12 +22,14 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
 
         const history = JSON.parse(localStorage.getItem("animeHistory")) || [];
         const existing = history.find(
-            (item) => item.id === `${animeData?.id}-${episodeData?.id}`
+            (item) => item.title === episodeData?.title
         );
+
         if (existing?.progress) {
             video.currentTime = existing.progress;
         }
     }, [animeData, episodeData]);
+
 
     // Update progress & simpan ke localStorage
     useEffect(() => {
