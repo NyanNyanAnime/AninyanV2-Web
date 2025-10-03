@@ -10,6 +10,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
     const [showControls, setShowControls] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     const videoRef = useRef(null);
     const containerRef = useRef(null);
@@ -31,6 +32,22 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
         }
     }, [animeData, episodeData]);
 
+    // sync state fullscreen dengan event browser
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+
+        document.addEventListener("fullscreenchange", handleFullscreenChange);
+        document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+        document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+
+        return () => {
+            document.removeEventListener("fullscreenchange", handleFullscreenChange);
+            document.removeEventListener("webkitfullscreenchange", handleFullscreenChange);
+            document.removeEventListener("mozfullscreenchange", handleFullscreenChange);
+        };
+    }, []);
 
     // Update progress & simpan ke localStorage
     useEffect(() => {
@@ -203,7 +220,10 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
             <video
                 ref={videoRef}
                 src={url}
-                className="w-full h-auto aspect-video"
+                className={`${isFullscreen
+                    ? "w-auto h-full max-w-full max-h-full mx-auto my-auto flex justify-center items-center object-contain"
+                    : "w-full h-auto aspect-video"
+                    }`}
                 crossOrigin="anonymous"
                 onClick={togglePlay}
                 onLoadedData={() => setIsLoading(false)}
