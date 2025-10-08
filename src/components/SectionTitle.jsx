@@ -6,7 +6,7 @@ const SectionTitle = ({ title, subtitle, type, activeValue }) => {
         ongoing: <Play className="w-6 h-6" />,
         finished: <CheckCircle className="w-6 h-6" />,
         movie: <Film className="w-6 h-6" />,
-        fall: <Leaf className="w-6 h-6" />,
+        season: <Leaf className="w-6 h-6" />,
         genre: <Tag className="w-6 h-6" />,
         country: <Globe className="w-6 h-6" />
     };
