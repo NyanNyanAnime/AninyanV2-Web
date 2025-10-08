@@ -2,11 +2,11 @@ import Api from "./Api";
 
 const GetAllAnime = async () => {
     try {
-        const [ongoing, finished, movie, summer, slider] = await Promise.all([
+        const [ongoing, finished, movie, season, slider] = await Promise.all([
             Api.get(`/ongoing`),
             Api.get(`/finished`),
             Api.get(`/movie`),
-            Api.get(`/summer`),
+            Api.get(`/season`),
             Api.get(`/slider`),
         ]);
 
@@ -14,7 +14,7 @@ const GetAllAnime = async () => {
             ongoing: ongoing.data.ongoingAnime ?? [],
             finished: finished.data.finishedAnime ?? [],
             movie: movie.data.movieAnime ?? [],
-            summer: summer.data.summerAnime ?? [],
+            season: season.data.seasonAnime ?? [],
             slider: slider.data.sliderAnime ?? []
         };
     } catch (error) {

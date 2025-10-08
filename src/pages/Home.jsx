@@ -17,7 +17,7 @@ const Home = () => {
         ongoing: [],
         finished: [],
         movie: [],
-        summer: [],
+        season: [],
         slider: []
     });
     const [animeGenre, setAnimeGenre] = useState({
@@ -88,11 +88,11 @@ const Home = () => {
 
                 {/* Summer */}
                 <div className="mb-12 lg:mb-16">
-                    <SectionTitle title="Summer Anime" subtitle="Summer Releases" type="summer" />
+                    <SectionTitle title="Fall Anime" subtitle="Fall Releases" type="summer" />
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         {loading
                             ? skeletons.map((_, i) => <LoadingCard key={i} />)
-                            : animeData.summer.map((anime, index) => (
+                            : animeData.season.map((anime, index) => (
                                 <AnimeCard key={anime.id} anime={anime} index={index} />
                             ))}
                     </div>

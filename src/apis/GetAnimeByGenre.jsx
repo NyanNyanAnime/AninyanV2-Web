@@ -6,9 +6,9 @@ const GetAnimeByGenre = async () => {
             Api.get('/properties/genre/action?page=1&order_by=latest'),
             Api.get('/properties/genre/romance?page=1&order_by=latest'),
             Api.get('/properties/genre/comedy?page=1&order_by=latest'),
-            Api.get('/properties/country/kr?page=1&order_by=updated'),
-            Api.get('/properties/country/cn?page=1&order_by=updated'),
-            Api.get('/properties/country/jp?page=1&order_by=updated'),
+            Api.get('/properties/country/kr?page=1&order_by=latest'),
+            Api.get('/properties/country/cn?page=1&order_by=latest'),
+            Api.get('/properties/country/jp?page=1&order_by=latest'),
         ]);
 
         return {
