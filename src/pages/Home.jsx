@@ -88,7 +88,7 @@ const Home = () => {
 
                 {/* Summer */}
                 <div className="mb-12 lg:mb-16">
-                    <SectionTitle title="Fall Anime" subtitle="Fall Releases" type="summer" />
+                    <SectionTitle title="Fall Anime" subtitle="Fall Releases" type="fall" />
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         {loading
                             ? skeletons.map((_, i) => <LoadingCard key={i} />)

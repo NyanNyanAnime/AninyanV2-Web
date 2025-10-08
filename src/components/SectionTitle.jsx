@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ChevronRight, Play, Film, CheckCircle, Sun, Globe, Tag } from 'lucide-react';
+import { ChevronRight, Play, Film, CheckCircle, Leaf, Globe, Tag } from 'lucide-react';
 
 const SectionTitle = ({ title, subtitle, type, activeValue }) => {
     const iconMap = {
         ongoing: <Play className="w-6 h-6" />,
         finished: <CheckCircle className="w-6 h-6" />,
         movie: <Film className="w-6 h-6" />,
-        summer: <Sun className="w-6 h-6" />,
+        fall: <Leaf className="w-6 h-6" />,
         genre: <Tag className="w-6 h-6" />,
         country: <Globe className="w-6 h-6" />
     };
