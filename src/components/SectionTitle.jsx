@@ -19,6 +19,8 @@ const SectionTitle = ({ title, subtitle, type, activeValue }) => {
         linkUrl = `/property/genre/${activeValue}`;
     } else if (type === "country" && activeValue) {
         linkUrl = `/property/country/${activeValue}`;
+    } else if (type == "season") {
+        linkUrl = `/property/season/${activeValue}`;
     }
 
     return (
