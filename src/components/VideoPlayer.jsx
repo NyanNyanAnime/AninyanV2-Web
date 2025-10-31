@@ -176,7 +176,7 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
             if (isPlaying) {
                 hideTimeout = setTimeout(() => {
                     setShowControls(false);
-                }, 3000);
+                }, 1000);
             }
         };
 
