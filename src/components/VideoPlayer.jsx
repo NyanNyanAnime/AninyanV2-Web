@@ -183,23 +183,29 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
         // Desktop
         container.addEventListener("mousemove", showControlsHandler);
 
-        // Mobile
-        const touchHandler = () => {
-            showControlsHandler();
-        };
-        container.addEventListener("touchstart", touchHandler);
-        container.addEventListener("touchmove", touchHandler);
-        container.addEventListener("touchend", touchHandler);
+        // Mobile / tablet
+        container.addEventListener("touchstart", showControlsHandler);
+        container.addEventListener("touchmove", showControlsHandler);
+        container.addEventListener("touchend", showControlsHandler);
 
         return () => {
             container.removeEventListener("mousemove", showControlsHandler);
-            container.removeEventListener("touchstart", touchHandler);
-            container.removeEventListener("touchmove", touchHandler);
-            container.removeEventListener("touchend", touchHandler);
+            container.removeEventListener("touchstart", showControlsHandler);
+            container.removeEventListener("touchmove", showControlsHandler);
+            container.removeEventListener("touchend", showControlsHandler);
             clearTimeout(hideTimeout);
         };
     }, [isPlaying]);
 
+    useEffect(() => {
+        if (isPlaying) {
+            const timeout = setTimeout(() => {
+                setShowControls(false);
+            }, 1000);
+
+            return () => clearTimeout(timeout);
+        }
+    }, [isPlaying]);
 
     const toggleFullscreen = () => {
         const container = containerRef.current;
