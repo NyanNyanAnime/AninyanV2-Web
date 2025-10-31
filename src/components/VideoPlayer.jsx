@@ -163,29 +163,43 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
         }
     }, [isDragging]);
 
-    // kontrol di desktop dan mobile
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
+        let hideTimeout;
+
         const showControlsHandler = () => {
             setShowControls(true);
-            clearTimeout(controlsTimeoutRef.current);
-            controlsTimeoutRef.current = setTimeout(() => {
-                if (isPlaying) setShowControls(false);
-            }, 3000);
+            clearTimeout(hideTimeout);
+
+            if (isPlaying) {
+                hideTimeout = setTimeout(() => {
+                    setShowControls(false);
+                }, 3000);
+            }
         };
 
+        // Desktop
         container.addEventListener("mousemove", showControlsHandler);
-        container.addEventListener("touchstart", showControlsHandler);
-        container.addEventListener("touchmove", showControlsHandler);
+
+        // Mobile
+        const touchHandler = () => {
+            showControlsHandler();
+        };
+        container.addEventListener("touchstart", touchHandler);
+        container.addEventListener("touchmove", touchHandler);
+        container.addEventListener("touchend", touchHandler);
 
         return () => {
             container.removeEventListener("mousemove", showControlsHandler);
-            container.removeEventListener("touchstart", showControlsHandler);
-            container.removeEventListener("touchmove", showControlsHandler);
+            container.removeEventListener("touchstart", touchHandler);
+            container.removeEventListener("touchmove", touchHandler);
+            container.removeEventListener("touchend", touchHandler);
+            clearTimeout(hideTimeout);
         };
     }, [isPlaying]);
+
 
     const toggleFullscreen = () => {
         const container = containerRef.current;
@@ -242,8 +256,6 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
             )}
 
             <video
-                playsInline
-                webkit-playsinline="true"
                 ref={videoRef}
                 src={url}
                 className={`${isFullscreen
