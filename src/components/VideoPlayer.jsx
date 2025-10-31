@@ -163,6 +163,30 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
         }
     }, [isDragging]);
 
+    // kontrol di desktop dan mobile
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const showControlsHandler = () => {
+            setShowControls(true);
+            clearTimeout(controlsTimeoutRef.current);
+            controlsTimeoutRef.current = setTimeout(() => {
+                if (isPlaying) setShowControls(false);
+            }, 3000);
+        };
+
+        container.addEventListener("mousemove", showControlsHandler);
+        container.addEventListener("touchstart", showControlsHandler);
+        container.addEventListener("touchmove", showControlsHandler);
+
+        return () => {
+            container.removeEventListener("mousemove", showControlsHandler);
+            container.removeEventListener("touchstart", showControlsHandler);
+            container.removeEventListener("touchmove", showControlsHandler);
+        };
+    }, [isPlaying]);
+
     const toggleFullscreen = () => {
         const container = containerRef.current;
         if (!document.fullscreenElement) {
@@ -218,6 +242,8 @@ const VideoPlayer = ({ url, animeData, episodeData }) => {
             )}
 
             <video
+                playsInline
+                webkit-playsinline="true"
                 ref={videoRef}
                 src={url}
                 className={`${isFullscreen

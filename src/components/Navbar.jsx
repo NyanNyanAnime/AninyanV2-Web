@@ -20,10 +20,9 @@ const Navbar = () => {
     const handleKeyDown = (e) => {
         if (e.key === "Enter" && animeSearch.trim()) {
             navigate(
-                `/anime/search?animeSearch=${encodeURIComponent(
-                    animeSearch
-                )}&page=1&orderBy=latest`
+                `/anime/search?animeSearch=${encodeURIComponent(animeSearch)}&page=1&orderBy=latest`
             );
+            setIsOpen(false); // 🔥 Tutup menu mobile setelah search
         }
     };
 

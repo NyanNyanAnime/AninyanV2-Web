@@ -45,11 +45,13 @@ const DetailAnime = () => {
                 <div className="absolute top-0 left-0 right-0 z-20 p-4 lg:p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
-                            <button
-                                className="p-2 bg-black/50 hover:bg-black/70 rounded-full transition-all backdrop-blur-sm"
-                            >
-                                <ArrowLeft size={20} />
-                            </button>
+                            <Link to="/">
+                                <button
+                                    className="p-2 bg-black/50 hover:bg-black/70 rounded-full transition-all backdrop-blur-sm"
+                                >
+                                    <ArrowLeft size={20} />
+                                </button>
+                            </Link>
                             <Link
                                 to={"/"}
                             >
