@@ -102,7 +102,7 @@ const SearchAnime = () => {
                                 <AnimeCard key={anime.animeCode || index} anime={anime} index={index} />
                             ))
                         ) : (
-                            <div className='col-span-4'>
+                            <div className='col-span-6 my-20'>
                                 <span className="flex justify-center text-3xl font-black text-white text-center uppercase tracking-wider">
                                     ANIME NOT FOUND
                                 </span>
